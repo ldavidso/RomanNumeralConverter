@@ -44,4 +44,10 @@ public class testRomanNumeralConverter {
         assertEquals("XL", romanNumeralConverter.convertToRomanNumeral(40));
         assertEquals("XC", romanNumeralConverter.convertToRomanNumeral(90));
     }
+
+    @Test
+    public void testSubtractionRuleForRomanNumeralC() {
+        assertEquals("CD", romanNumeralConverter.convertToRomanNumeral(400));
+        assertEquals("CM", romanNumeralConverter.convertToRomanNumeral(900));
+    }
 }
