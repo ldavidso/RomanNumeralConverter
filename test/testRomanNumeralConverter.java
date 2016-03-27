@@ -101,4 +101,10 @@ public class testRomanNumeralConverter {
         assertEquals("400", romanNumeralConverter.convert("CD"));
         assertEquals("900", romanNumeralConverter.convert("CM"));
     }
+
+    @Test
+    public void testComplexRomanNumeralsConversionReturnsCorrectNumbers() {
+        assertEquals("1066", romanNumeralConverter.convert("MLXVI"));
+        assertEquals("1989", romanNumeralConverter.convert("MCMLXXXIX"));
+    }
 }
