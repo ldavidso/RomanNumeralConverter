@@ -38,6 +38,11 @@ public class RomanNumeralConverter {
         boolean validRomanNumeral;
         String romanNumeral;
 
+        // check for invalid letters in user input valid characters are IVXLCDM
+        if (!userInput.matches("^[IVXLCDM]+$")) {
+            return "Invalid roman numeral!";
+        }
+
         // Check for over 3 of I, X, C, or M and more than one of V, L, and D
         for (String invalidSequence: invalidSequences) {
             if(userInput.contains(invalidSequence)) {

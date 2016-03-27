@@ -128,4 +128,9 @@ public class testRomanNumeralConverter {
         assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("XM"));
         assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("XD"));
     }
+
+    @Test
+    public void testInvalidTextInputToConvertFromRomanNumeralToNumber() {
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("ABCDE"));
+    }
 }
