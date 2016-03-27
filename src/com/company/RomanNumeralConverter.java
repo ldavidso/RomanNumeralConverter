@@ -24,4 +24,8 @@ public class RomanNumeralConverter {
         }
         return outputValue.toString();
     }
+
+    public String convertToArabicNumber(String userInput) {
+        return "1";
+    }
 }

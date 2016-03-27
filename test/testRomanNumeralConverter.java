@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by lawrence on 3/27/16.
@@ -66,5 +67,10 @@ public class testRomanNumeralConverter {
     public void testNegativeNumbersAndZeroForRomanNumeralConversionReturnsMessage() {
         assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(0));
         assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(-1));
+    }
+
+    @Test
+    public void testRomanNumeralIReturnsCorrectNumber() {
+        assertEquals("1", romanNumeralConverter.convertToArabicNumber("I"));
     }
 }
