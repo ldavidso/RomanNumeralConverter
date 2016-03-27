@@ -5,8 +5,8 @@ package com.company;
  */
 public class RomanNumeralConverter {
     public String convertToRomanNumeral(Integer userInput) {
-        String[] romanNumerals = {"M", "D", "C", "L", "X", "V", "I"};
-        Integer[] romanNumeralValues = {1000, 500, 100, 50, 10, 5, 1};
+        String[] romanNumerals = {"M", "D", "C", "L", "X", "IX", "V", "IV", "I"};
+        Integer[] romanNumeralValues = {1000, 500, 100, 50, 10, 9, 5, 4, 1};
         StringBuilder outputValue = new StringBuilder();
 
         while (userInput > 0) {

@@ -32,4 +32,10 @@ public class testRomanNumeralConverter {
         assertEquals("CCC", romanNumeralConverter.convertToRomanNumeral(300));
         assertEquals("MMM", romanNumeralConverter.convertToRomanNumeral(3000));
     }
+
+    @Test
+    public void testSubtractionRuleForRomanNumeralI() {
+        assertEquals("IV", romanNumeralConverter.convertToRomanNumeral(4));
+        assertEquals("IX", romanNumeralConverter.convertToRomanNumeral(9));
+    }
 }
