@@ -15,12 +15,6 @@ public class testRomanNumeralConverter {
     }
 
     @Test
-    public  void testTestIntegerUpToThreeReturnsCorrectRomanNumeral() {
-        assertEquals("II", romanNumeralConverter.convertToRomanNumeral(2));
-        assertEquals("III", romanNumeralConverter.convertToRomanNumeral(3));
-    }
-
-    @Test
     public void testReturnOfSingleRomanNumeralsIVXLCDM() {
         assertEquals("I", romanNumeralConverter.convertToRomanNumeral(1));
         assertEquals("V", romanNumeralConverter.convertToRomanNumeral(5));
