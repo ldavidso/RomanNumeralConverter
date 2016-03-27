@@ -122,4 +122,14 @@ public class testRomanNumeralConverter {
         assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("LL"));
         assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("DD"));
     }
+
+    @Test
+    public void testInvalidRomanNumeralSubtractionRule() {
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("IL"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("IC"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("ID"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("IM"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("XM"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("XD"));
+    }
 }
