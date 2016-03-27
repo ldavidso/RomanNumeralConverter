@@ -50,4 +50,10 @@ public class testRomanNumeralConverter {
         assertEquals("CD", romanNumeralConverter.convertToRomanNumeral(400));
         assertEquals("CM", romanNumeralConverter.convertToRomanNumeral(900));
     }
+
+    @Test
+    public void testComplexRomanNumeralConversionReturnsCorrectRomanNumerals() {
+        assertEquals("MLXVI", romanNumeralConverter.convertToRomanNumeral(1066));
+        assertEquals("MCMLXXXIX", romanNumeralConverter.convertToRomanNumeral(1989));
+    }
 }
