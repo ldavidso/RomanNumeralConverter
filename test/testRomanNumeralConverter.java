@@ -17,60 +17,60 @@ public class testRomanNumeralConverter {
 
     @Test
     public void testReturnOfSingleRomanNumeralsIVXLCDM() {
-        assertEquals("I", romanNumeralConverter.convertToRomanNumeral(1));
-        assertEquals("V", romanNumeralConverter.convertToRomanNumeral(5));
-        assertEquals("X", romanNumeralConverter.convertToRomanNumeral(10));
-        assertEquals("L", romanNumeralConverter.convertToRomanNumeral(50));
-        assertEquals("C", romanNumeralConverter.convertToRomanNumeral(100));
-        assertEquals("D", romanNumeralConverter.convertToRomanNumeral(500));
-        assertEquals("M", romanNumeralConverter.convertToRomanNumeral(1000));
+        assertEquals("I", romanNumeralConverter.convert(1));
+        assertEquals("V", romanNumeralConverter.convert(5));
+        assertEquals("X", romanNumeralConverter.convert(10));
+        assertEquals("L", romanNumeralConverter.convert(50));
+        assertEquals("C", romanNumeralConverter.convert(100));
+        assertEquals("D", romanNumeralConverter.convert(500));
+        assertEquals("M", romanNumeralConverter.convert(1000));
     }
 
     @Test
     public void testAdditionRuleForRomanNumeralsIXCM() {
-        assertEquals("III", romanNumeralConverter.convertToRomanNumeral(3));
-        assertEquals("XXX", romanNumeralConverter.convertToRomanNumeral(30));
-        assertEquals("CCC", romanNumeralConverter.convertToRomanNumeral(300));
-        assertEquals("MMM", romanNumeralConverter.convertToRomanNumeral(3000));
+        assertEquals("III", romanNumeralConverter.convert(3));
+        assertEquals("XXX", romanNumeralConverter.convert(30));
+        assertEquals("CCC", romanNumeralConverter.convert(300));
+        assertEquals("MMM", romanNumeralConverter.convert(3000));
     }
 
     @Test
     public void testSubtractionRuleForRomanNumeralI() {
-        assertEquals("IV", romanNumeralConverter.convertToRomanNumeral(4));
-        assertEquals("IX", romanNumeralConverter.convertToRomanNumeral(9));
+        assertEquals("IV", romanNumeralConverter.convert(4));
+        assertEquals("IX", romanNumeralConverter.convert(9));
     }
 
     @Test
     public void testSubtractionRuleForRomanNumeralX() {
-        assertEquals("XL", romanNumeralConverter.convertToRomanNumeral(40));
-        assertEquals("XC", romanNumeralConverter.convertToRomanNumeral(90));
+        assertEquals("XL", romanNumeralConverter.convert(40));
+        assertEquals("XC", romanNumeralConverter.convert(90));
     }
 
     @Test
     public void testSubtractionRuleForRomanNumeralC() {
-        assertEquals("CD", romanNumeralConverter.convertToRomanNumeral(400));
-        assertEquals("CM", romanNumeralConverter.convertToRomanNumeral(900));
+        assertEquals("CD", romanNumeralConverter.convert(400));
+        assertEquals("CM", romanNumeralConverter.convert(900));
     }
 
     @Test
     public void testComplexRomanNumeralConversionReturnsCorrectRomanNumerals() {
-        assertEquals("MLXVI", romanNumeralConverter.convertToRomanNumeral(1066));
-        assertEquals("MCMLXXXIX", romanNumeralConverter.convertToRomanNumeral(1989));
+        assertEquals("MLXVI", romanNumeralConverter.convert(1066));
+        assertEquals("MCMLXXXIX", romanNumeralConverter.convert(1989));
     }
 
     @Test
     public void testNumberTooLargeForRomanNumeralConversionReturnsMessage() {
-        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(4000));
+        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convert(4000));
     }
 
     @Test
     public void testNegativeNumbersAndZeroForRomanNumeralConversionReturnsMessage() {
-        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(0));
-        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(-1));
+        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convert(0));
+        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convert(-1));
     }
 
     @Test
     public void testRomanNumeralIReturnsCorrectNumber() {
-        assertEquals("1", romanNumeralConverter.convertToArabicNumber("I"));
+        assertEquals("1", romanNumeralConverter.convert("I"));
     }
 }

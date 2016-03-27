@@ -4,7 +4,7 @@ package com.company;
  * Created by lawrence on 3/27/16.
  */
 public class RomanNumeralConverter {
-    public String convertToRomanNumeral(Integer userInput) {
+    public String convert(Integer userInput) {
         if (userInput > 3999 || userInput <= 0) {
             return "Please use a number between 1 - 3999";
         }
@@ -25,7 +25,7 @@ public class RomanNumeralConverter {
         return outputValue.toString();
     }
 
-    public String convertToArabicNumber(String userInput) {
+    public String convert(String userInput) {
         return "1";
     }
 }
