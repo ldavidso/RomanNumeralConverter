@@ -91,4 +91,14 @@ public class testRomanNumeralConverter {
         assertEquals("300", romanNumeralConverter.convert("CCC"));
         assertEquals("3000", romanNumeralConverter.convert("MMM"));
     }
+
+    @Test
+    public void testSubtractionRuleForConversionFromRomanNumeralToNumber() {
+        assertEquals("4", romanNumeralConverter.convert("IV"));
+        assertEquals("9", romanNumeralConverter.convert("IX"));
+        assertEquals("40", romanNumeralConverter.convert("XL"));
+        assertEquals("90", romanNumeralConverter.convert("XC"));
+        assertEquals("400", romanNumeralConverter.convert("CD"));
+        assertEquals("900", romanNumeralConverter.convert("CM"));
+    }
 }
