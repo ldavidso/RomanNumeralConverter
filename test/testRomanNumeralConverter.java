@@ -61,4 +61,10 @@ public class testRomanNumeralConverter {
     public void testNumberTooLargeForRomanNumeralConversionReturnsMessage() {
         assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(4000));
     }
+
+    @Test
+    public void testNegativeNumbersAndZeroForRomanNumeralConversionReturnsMessage() {
+        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(0));
+        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(-1));
+    }
 }

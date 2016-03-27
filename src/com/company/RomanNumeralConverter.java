@@ -5,7 +5,7 @@ package com.company;
  */
 public class RomanNumeralConverter {
     public String convertToRomanNumeral(Integer userInput) {
-        if (userInput > 3999) {
+        if (userInput > 3999 || userInput <= 0) {
             return "Please use a number between 1 - 3999";
         }
 
