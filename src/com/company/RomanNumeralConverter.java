@@ -4,13 +4,16 @@ package com.company;
  * Created by lawrence on 3/27/16.
  */
 public class RomanNumeralConverter {
+
+    private static String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    private static Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+
+
     public String convert(Integer userInput) {
         if (userInput > 3999 || userInput <= 0) {
             return "Please use a number between 1 - 3999";
         }
 
-        String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         StringBuilder outputValue = new StringBuilder();
 
         while (userInput > 0) {
@@ -26,6 +29,13 @@ public class RomanNumeralConverter {
     }
 
     public String convert(String userInput) {
-        return "1";
+        int outputValue = 0;
+        for (int i = 0; i < romanNumerals.length; i++) {
+            if (userInput.equals(romanNumerals[i])) {
+                outputValue += romanNumeralValues[i];
+                break;
+            }
+        }
+        return  Integer.toString(outputValue);
     }
 }

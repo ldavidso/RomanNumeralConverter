@@ -73,4 +73,14 @@ public class testRomanNumeralConverter {
     public void testRomanNumeralIReturnsCorrectNumber() {
         assertEquals("1", romanNumeralConverter.convert("I"));
     }
+
+    @Test
+    public void testIndividualRomanNumeralsReturnsCorrectNumbers() {
+        assertEquals("5", romanNumeralConverter.convert("V"));
+        assertEquals("10", romanNumeralConverter.convert("X"));
+        assertEquals("50", romanNumeralConverter.convert("L"));
+        assertEquals("100", romanNumeralConverter.convert("C"));
+        assertEquals("500", romanNumeralConverter.convert("D"));
+        assertEquals("1000", romanNumeralConverter.convert("M"));
+    }
 }
