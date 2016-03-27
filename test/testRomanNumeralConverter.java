@@ -106,17 +106,17 @@ public class testRomanNumeralConverter {
 
     @Test
     public void testInvalidRomanNumeralWithOverThreeInARow() {
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("IIII"));
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("XXXX"));
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("CCCC"));
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("MMMM"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("IIII"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("XXXX"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("CCCC"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("MMMM"));
     }
 
     @Test
     public void testInvalidRomanNumeralsThatShouldNotHaveMoreThanOneInARow() {
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("VV"));
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("LL"));
-        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("DD"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("VV"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("LL"));
+        assertEquals("Invalid roman numeral!", romanNumeralConverter.convert("DD"));
     }
 
     @Test

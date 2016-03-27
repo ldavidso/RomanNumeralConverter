@@ -36,7 +36,7 @@ public class RomanNumeralConverter {
 
         for (String invalidSequence: invalidSequences) {
             if(userInput.contains(invalidSequence)) {
-                return "Roman numeral can only have 3 in a row for I,X,C, and M";
+                return "Invalid roman numeral!";
             }
         }
 
