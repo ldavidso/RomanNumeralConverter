@@ -12,4 +12,11 @@ public class testRomanNumeralConverter {
         RomanNumeralConverter romanNumeralConverter = new RomanNumeralConverter();
         assertEquals("I", romanNumeralConverter.convertToRomanNumeral(1));
     }
+
+    @Test
+    public  void testTestIntegerUpToThreeReturnsCorrectRomanNumeral() {
+        RomanNumeralConverter romanNumeralConverter = new RomanNumeralConverter();
+        assertEquals("II", romanNumeralConverter.convertToRomanNumeral(2));
+        assertEquals("III", romanNumeralConverter.convertToRomanNumeral(3));
+    }
 }
