@@ -13,10 +13,6 @@ public class testRomanNumeralConverter {
     public void setUp() {
         romanNumeralConverter = new RomanNumeralConverter();
     }
-    @Test
-    public void testIntegerOneReturnsI() {
-        assertEquals("I", romanNumeralConverter.convertToRomanNumeral(1));
-    }
 
     @Test
     public  void testTestIntegerUpToThreeReturnsCorrectRomanNumeral() {
@@ -25,7 +21,8 @@ public class testRomanNumeralConverter {
     }
 
     @Test
-    public void testReturnOfSingleRomanNumeralsVXLCDM() {
+    public void testReturnOfSingleRomanNumeralsIVXLCDM() {
+        assertEquals("I", romanNumeralConverter.convertToRomanNumeral(1));
         assertEquals("V", romanNumeralConverter.convertToRomanNumeral(5));
         assertEquals("X", romanNumeralConverter.convertToRomanNumeral(10));
         assertEquals("L", romanNumeralConverter.convertToRomanNumeral(50));
