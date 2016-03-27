@@ -8,7 +8,6 @@ public class RomanNumeralConverter {
     private static String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     private static Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
-
     public String convert(Integer userInput) {
         if (userInput > 3999 || userInput <= 0) {
             return "Please use a number between 1 - 3999";
@@ -30,10 +29,17 @@ public class RomanNumeralConverter {
 
     public String convert(String userInput) {
         int outputValue = 0;
-        for (int i = 0; i < romanNumerals.length; i++) {
-            if (userInput.equals(romanNumerals[i])) {
-                outputValue += romanNumeralValues[i];
-                break;
+        int userInputLength = userInput.length();
+
+        while (userInputLength > 0) {
+            for (int i = 0; i < romanNumerals.length; i++) {
+                int currentRomanNumeralLength = romanNumerals[i].length();
+                if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
+                    outputValue += romanNumeralValues[i];
+                    userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
+                    userInputLength -= currentRomanNumeralLength;
+                    break;
+                }
             }
         }
         return  Integer.toString(outputValue);

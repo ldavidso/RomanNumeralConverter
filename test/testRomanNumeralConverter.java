@@ -83,4 +83,12 @@ public class testRomanNumeralConverter {
         assertEquals("500", romanNumeralConverter.convert("D"));
         assertEquals("1000", romanNumeralConverter.convert("M"));
     }
+
+    @Test
+    public void testAdditionRuleForConversionFromRomanNumeralToNumber() {
+        assertEquals("3", romanNumeralConverter.convert("III"));
+        assertEquals("30", romanNumeralConverter.convert("XXX"));
+        assertEquals("300", romanNumeralConverter.convert("CCC"));
+        assertEquals("3000", romanNumeralConverter.convert("MMM"));
+    }
 }
