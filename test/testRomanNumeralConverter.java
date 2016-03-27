@@ -107,4 +107,19 @@ public class testRomanNumeralConverter {
         assertEquals("1066", romanNumeralConverter.convert("MLXVI"));
         assertEquals("1989", romanNumeralConverter.convert("MCMLXXXIX"));
     }
+
+    @Test
+    public void testInvalidRomanNumeralWithOverThreeInARow() {
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("IIII"));
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("XXXX"));
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("CCCC"));
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("MMMM"));
+    }
+
+    @Test
+    public void testInvalidRomanNumeralsThatShouldNotHaveMoreThanOneInARow() {
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("VV"));
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("LL"));
+        assertEquals("Roman numeral can only have 3 in a row for I,X,C, and M", romanNumeralConverter.convert("DD"));
+    }
 }

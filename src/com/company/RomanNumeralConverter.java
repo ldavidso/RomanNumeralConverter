@@ -28,6 +28,13 @@ public class RomanNumeralConverter {
     }
 
     public String convert(String userInput) {
+        String[] invalidSequences = {"IIII", "XXXX", "CCCC", "MMMM", "VV", "LL", "DD"};
+        for (String invalidSequence: invalidSequences) {
+            if(userInput.contains(invalidSequence)) {
+                return "Roman numeral can only have 3 in a row for I,X,C, and M";
+            }
+        }
+
         int outputValue = 0;
         int userInputLength = userInput.length();
 
