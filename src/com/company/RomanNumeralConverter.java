@@ -5,15 +5,19 @@ package com.company;
  */
 public class RomanNumeralConverter {
     public String convertToRomanNumeral(Integer userInput) {
-        String[] romanNumerals = {"III", "II", "I"};
-        Integer[] romanNumeralValues = {3, 2, 1};
-        String outputValue = "";
+        String[] romanNumerals = {"M", "D", "C", "L", "X", "V", "I"};
+        Integer[] romanNumeralValues = {1000, 500, 100, 50, 10, 5, 1};
+        StringBuilder outputValue = new StringBuilder();
 
-        for (int i = 0; i < romanNumerals.length; i++) {
-            if (userInput == romanNumeralValues[i]) {
-                outputValue = romanNumerals[i];
+        while (userInput > 0) {
+            for (int i = 0; i < romanNumerals.length; i++) {
+                if (userInput - romanNumeralValues[i] >= 0) {
+                    outputValue.append(romanNumerals[i]);
+                    userInput -= romanNumeralValues[i];
+                    break;
+                }
             }
         }
-        return outputValue;
+        return outputValue.toString();
     }
 }
