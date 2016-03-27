@@ -70,12 +70,8 @@ public class testRomanNumeralConverter {
     }
 
     @Test
-    public void testRomanNumeralIReturnsCorrectNumber() {
-        assertEquals("1", romanNumeralConverter.convert("I"));
-    }
-
-    @Test
     public void testIndividualRomanNumeralsReturnsCorrectNumbers() {
+        assertEquals("1", romanNumeralConverter.convert("I"));
         assertEquals("5", romanNumeralConverter.convert("V"));
         assertEquals("10", romanNumeralConverter.convert("X"));
         assertEquals("50", romanNumeralConverter.convert("L"));
