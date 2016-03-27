@@ -56,4 +56,9 @@ public class testRomanNumeralConverter {
         assertEquals("MLXVI", romanNumeralConverter.convertToRomanNumeral(1066));
         assertEquals("MCMLXXXIX", romanNumeralConverter.convertToRomanNumeral(1989));
     }
+
+    @Test
+    public void testNumberTooLargeForRomanNumeralConversionReturnsMessage() {
+        assertEquals("Please use a number between 1 - 3999", romanNumeralConverter.convertToRomanNumeral(4000));
+    }
 }

@@ -5,6 +5,10 @@ package com.company;
  */
 public class RomanNumeralConverter {
     public String convertToRomanNumeral(Integer userInput) {
+        if (userInput > 3999) {
+            return "Please use a number between 1 - 3999";
+        }
+
         String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         StringBuilder outputValue = new StringBuilder();
