@@ -30,4 +30,12 @@ public class testRomanNumeralConverter {
         assertEquals("D", romanNumeralConverter.convertToRomanNumeral(500));
         assertEquals("M", romanNumeralConverter.convertToRomanNumeral(1000));
     }
+
+    @Test
+    public void testAdditionRuleForRomanNumeralsIXCM() {
+        assertEquals("III", romanNumeralConverter.convertToRomanNumeral(3));
+        assertEquals("XXX", romanNumeralConverter.convertToRomanNumeral(30));
+        assertEquals("CCC", romanNumeralConverter.convertToRomanNumeral(300));
+        assertEquals("MMM", romanNumeralConverter.convertToRomanNumeral(3000));
+    }
 }
