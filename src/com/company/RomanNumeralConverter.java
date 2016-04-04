@@ -33,11 +33,6 @@ public class RomanNumeralConverter {
     }
 
     public String convertToArabic(String userInput) {
-        String[] validForI = {"X", "V", "I"};
-        String[] validForX = {"C", "L", "X", "V", "I"};
-        boolean validRomanNumeral;
-        String romanNumeral;
-
         if (!validRomanNumeral(userInput)) return "Invalid roman numeral!";
 
         int outputValue = 0;
@@ -46,37 +41,9 @@ public class RomanNumeralConverter {
         while (userInputLength > 0) {
             for (int i = 0; i < romanNumerals.length; i++) {
                 int currentRomanNumeralLength = romanNumerals[i].length();
-                // first checks to see if userInput can substring() based on current length of userInput and current Roman Numeral being tested.
                 if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
-                    // used to validate subtraction rule.
-                    if (userInputLength  > 1) {
-                        validRomanNumeral = false;
-                        switch (romanNumerals[i]) {
-                            case "I":
-                                romanNumeral = userInput.substring(1,2);
-                                for (String validI: validForI) {
-                                    if(romanNumeral.equals(validI)) {
-                                        validRomanNumeral = true;
-                                        break;
-                                    }
-                                }
-                                break;
-                            case "X":
-                                romanNumeral = userInput.substring(1,2);
-                                for (String validX: validForX) {
-                                    if(romanNumeral.equals(validX)) {
-                                        validRomanNumeral = true;
-                                        break;
-                                    }
-                                }
-                                break;
-                            default:
-                                validRomanNumeral = true;
-                                break;
-                        }
-                        if (!validRomanNumeral) {
-                            return "Invalid roman numeral!";
-                        }
+                    if (userInputLength > 1) {
+                        if (!validateRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
                     }
                     outputValue += romanNumeralValues[i];
                     userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
@@ -96,5 +63,25 @@ public class RomanNumeralConverter {
             if(userInput.contains(invalidSequence)) return false;
         }
         return true;
+    }
+
+    private boolean validateRomanNumeralPart(String romanNumeral, String userInputPart) {
+        String[] validForI = {"X", "V", "I"};
+        String[] validForX = {"C", "L", "X", "V", "I"};
+        if (!romanNumeral.matches("[I|X]")) return true;
+
+        switch (romanNumeral) {
+            case "I":
+                for (String validI: validForI) {
+                    if(userInputPart.equals(validI)) return true;
+                }
+                break;
+            case "X":
+                for (String validX: validForX) {
+                    if(userInputPart.equals(validX)) return true;
+                }
+                break;
+        }
+        return false;
     }
 }
