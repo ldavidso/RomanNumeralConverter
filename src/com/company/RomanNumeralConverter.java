@@ -8,7 +8,7 @@ public class RomanNumeralConverter {
     private static String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     private static Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
-    public String convert(Integer userInput) {
+    public String convertToRoman(Integer userInput) {
         // Checks minimum and maximum number that can be converted to roman numeral
         // all rules to convert from arabic number to roman numeral are part of the order of the two
         // arrays, romanNumerals and romanNumeralValues.
@@ -30,7 +30,7 @@ public class RomanNumeralConverter {
         return outputValue.toString();
     }
 
-    public String convert(String userInput) {
+    public String convertToArabic(String userInput) {
         // used for validation of roman numeral to arabic number.
         String[] invalidSequences = {"IIII", "XXXX", "CCCC", "MMMM", "VV", "LL", "DD"};
         String[] validForI = {"X", "V", "I"};
