@@ -7,6 +7,8 @@ public class RomanNumeralConverter {
 
     private static String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     private static Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    private int userInputLength;
+    private int currentRomanNumeralLength;
 
     public String convertToRoman(Integer userInput) {
         if(!validArabic(userInput)) return "Please use a number between 1 - 3999";
@@ -35,20 +37,13 @@ public class RomanNumeralConverter {
         if (!validRomanNumeral(userInput)) return "Invalid roman numeral!";
 
         int outputValue = 0;
-        int userInputLength = userInput.length();
-        int currentRomanNumeralLength;
+        userInputLength = userInput.length();
 
         while (userInputLength > 0) {
-            for (int i = 0; i < romanNumerals.length; i++) {
-                currentRomanNumeralLength = romanNumerals[i].length();
-                if (userInputLength > 1 && !validateNextRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
-                if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
-                    outputValue += romanNumeralValues[i];
-                    userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
-                    userInputLength -= currentRomanNumeralLength;
-                    break;
-                }
-            }
+            outputValue = parseRomanNumeral(outputValue, userInput);
+            if (outputValue == -1) return "Invalid roman numeral!";
+            userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
+            userInputLength -= currentRomanNumeralLength;
         }
         return  Integer.toString(outputValue);
     }
@@ -62,6 +57,19 @@ public class RomanNumeralConverter {
             if(userInput.contains(invalidSequence)) return false;
         }
         return true;
+    }
+
+    private Integer parseRomanNumeral(Integer outputValue, String userInput) {
+        for (int i = 0; i < romanNumerals.length; i++) {
+            currentRomanNumeralLength = romanNumerals[i].length();
+            if (userInputLength > 1 && !validateNextRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return -1;
+            if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
+                outputValue += romanNumeralValues[i];
+                break;
+            }
+        }
+
+        return outputValue;
     }
 
     private boolean validateNextRomanNumeralPart(String firstRomanNumeral, String precedingRomanNumeral) {
