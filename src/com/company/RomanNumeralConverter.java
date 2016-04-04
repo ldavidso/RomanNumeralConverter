@@ -64,7 +64,7 @@ public class RomanNumeralConverter {
         return true;
     }
 
-    private boolean validateNextRomanNumeralPart(String firstRomanNumeral, String procedingRomanNumeral) {
+    private boolean validateNextRomanNumeralPart(String firstRomanNumeral, String precedingRomanNumeral) {
 
         if (!firstRomanNumeral.matches("[I|X]")) return true;
 
@@ -77,7 +77,7 @@ public class RomanNumeralConverter {
         }
 
         for (String validRomanNumeral: validRomanNumerals) {
-            if(procedingRomanNumeral.equals(validRomanNumeral)) return true;
+            if(precedingRomanNumeral.equals(validRomanNumeral)) return true;
         }
         return false;
     }
