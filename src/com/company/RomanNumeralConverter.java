@@ -41,7 +41,7 @@ public class RomanNumeralConverter {
         while (userInputLength > 0) {
             for (int i = 0; i < romanNumerals.length; i++) {
                 currentRomanNumeralLength = romanNumerals[i].length();
-                if (userInputLength > 1 && !validateRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
+                if (userInputLength > 1 && !validateNextRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
                 if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
                     outputValue += romanNumeralValues[i];
                     userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
@@ -64,20 +64,20 @@ public class RomanNumeralConverter {
         return true;
     }
 
-    private boolean validateRomanNumeralPart(String romanNumeral, String userInputPart) {
+    private boolean validateNextRomanNumeralPart(String firstRomanNumeral, String procedingRomanNumeral) {
 
-        if (!romanNumeral.matches("[I|X]")) return true;
+        if (!firstRomanNumeral.matches("[I|X]")) return true;
 
         String[] validRomanNumerals;
 
-        if (romanNumeral.equals("I")) {
+        if (firstRomanNumeral.equals("I")) {
             validRomanNumerals = new String [] {"X", "V", "I"};
         } else {
             validRomanNumerals = new String [] {"C", "L", "X", "V", "I"};
         }
 
         for (String validRomanNumeral: validRomanNumerals) {
-            if(userInputPart.equals(validRomanNumeral)) return true;
+            if(procedingRomanNumeral.equals(validRomanNumeral)) return true;
         }
         return false;
     }
