@@ -31,6 +31,7 @@ public class RomanNumeralConverter {
     }
 
     public String convertToArabic(String userInput) {
+        userInput = userInput.toUpperCase();
         if (!validRomanNumeral(userInput)) return "Invalid roman numeral!";
 
         int outputValue = 0;
@@ -54,6 +55,7 @@ public class RomanNumeralConverter {
 
     private boolean validRomanNumeral(String userInput) {
         String[] invalidSequences = {"IIII", "XXXX", "CCCC", "MMMM", "VV", "LL", "DD"};
+
         if (userInput.isEmpty()) return false;
         if (!userInput.matches("^[IVXLCDM]+$")) return false;
         for (String invalidSequence: invalidSequences) {

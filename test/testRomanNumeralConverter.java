@@ -133,4 +133,9 @@ public class testRomanNumeralConverter {
     public void testInvalidTextInputToConvertFromRomanNumeralToNumber() {
         assertEquals("Invalid roman numeral!", romanNumeralConverter.convertToArabic("ABCDE"));
     }
+
+    @Test
+    public void testLowerCaseInput() {
+        assertEquals("1989", romanNumeralConverter.convertToArabic("mcmlxxxix"));
+    }
 }
