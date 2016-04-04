@@ -66,20 +66,16 @@ public class RomanNumeralConverter {
 
         if (!romanNumeral.matches("[I|X]")) return true;
 
-        String[] validForI = {"X", "V", "I"};
-        String[] validForX = {"C", "L", "X", "V", "I"};
+        String[] validRomanNumerals;
 
-        switch (romanNumeral) {
-            case "I":
-                for (String validI: validForI) {
-                    if(userInputPart.equals(validI)) return true;
-                }
-                break;
-            case "X":
-                for (String validX: validForX) {
-                    if(userInputPart.equals(validX)) return true;
-                }
-                break;
+        if (romanNumeral.equals("I")) {
+            validRomanNumerals = new String [] {"X", "V", "I"};
+        } else {
+            validRomanNumerals = new String [] {"C", "L", "X", "V", "I"};
+        }
+
+        for (String validRomanNumeral: validRomanNumerals) {
+            if(userInputPart.equals(validRomanNumeral)) return true;
         }
         return false;
     }
