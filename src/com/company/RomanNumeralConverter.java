@@ -33,24 +33,12 @@ public class RomanNumeralConverter {
     }
 
     public String convertToArabic(String userInput) {
-        // used for validation of roman numeral to arabic number.
-        String[] invalidSequences = {"IIII", "XXXX", "CCCC", "MMMM", "VV", "LL", "DD"};
         String[] validForI = {"X", "V", "I"};
         String[] validForX = {"C", "L", "X", "V", "I"};
         boolean validRomanNumeral;
         String romanNumeral;
 
-        // check for invalid letters in user input valid characters are IVXLCDM
-        if (!userInput.matches("^[IVXLCDM]+$")) {
-            return "Invalid roman numeral!";
-        }
-
-        // Check for over 3 of I, X, C, or M and more than one of V, L, and D
-        for (String invalidSequence: invalidSequences) {
-            if(userInput.contains(invalidSequence)) {
-                return "Invalid roman numeral!";
-            }
-        }
+        if (!validRomanNumeral(userInput)) return "Invalid roman numeral!";
 
         int outputValue = 0;
         int userInputLength = userInput.length();
@@ -98,5 +86,15 @@ public class RomanNumeralConverter {
             }
         }
         return  Integer.toString(outputValue);
+    }
+
+    private boolean validRomanNumeral(String userInput) {
+        String[] invalidSequences = {"IIII", "XXXX", "CCCC", "MMMM", "VV", "LL", "DD"};
+        if (userInput.isEmpty()) return false;
+        if (!userInput.matches("^[IVXLCDM]+$")) return false;
+        for (String invalidSequence: invalidSequences) {
+            if(userInput.contains(invalidSequence)) return false;
+        }
+        return true;
     }
 }
