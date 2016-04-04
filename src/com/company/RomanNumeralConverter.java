@@ -9,12 +9,7 @@ public class RomanNumeralConverter {
     private static Integer[] romanNumeralValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
     public String convertToRoman(Integer userInput) {
-        // Checks minimum and maximum number that can be converted to roman numeral
-        // all rules to convert from arabic number to roman numeral are part of the order of the two
-        // arrays, romanNumerals and romanNumeralValues.
-        if (userInput > 3999 || userInput <= 0) {
-            return "Please use a number between 1 - 3999";
-        }
+        if(!validArabic(userInput)) return "Please use a number between 1 - 3999";
 
         StringBuilder outputValue = new StringBuilder();
 
@@ -28,6 +23,13 @@ public class RomanNumeralConverter {
             }
         }
         return outputValue.toString();
+    }
+
+    private Boolean validArabic(Integer userInput) {
+        if (userInput > 3999 || userInput <= 0) {
+            return false;
+        }
+        return true;
     }
 
     public String convertToArabic(String userInput) {
