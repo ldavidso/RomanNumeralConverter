@@ -26,9 +26,7 @@ public class RomanNumeralConverter {
     }
 
     private Boolean validArabic(Integer userInput) {
-        if (userInput > 3999 || userInput <= 0) {
-            return false;
-        }
+        if (userInput > 3999 || userInput <= 0) return false;
         return true;
     }
 
@@ -42,10 +40,8 @@ public class RomanNumeralConverter {
         while (userInputLength > 0) {
             for (int i = 0; i < romanNumerals.length; i++) {
                 currentRomanNumeralLength = romanNumerals[i].length();
+                if (userInputLength > 1 && !validateRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
                 if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
-                    if (userInputLength > 1) {
-                        if (!validateRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
-                    }
                     outputValue += romanNumeralValues[i];
                     userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
                     userInputLength -= currentRomanNumeralLength;
