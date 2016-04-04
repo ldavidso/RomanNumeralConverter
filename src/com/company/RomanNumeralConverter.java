@@ -14,13 +14,9 @@ public class RomanNumeralConverter {
         if(!validArabic(userInput)) return "Please use a number between 1 - 3999";
         StringBuilder outputValue = new StringBuilder();
         while (userInput > 0) {
-            for (int i = 0; i < romanNumerals.length; i++) {
-                if (userInput - romanNumeralValues[i] >= 0) {
-                    outputValue.append(romanNumerals[i]);
-                    userInput -= romanNumeralValues[i];
-                    break;
-                }
-            }
+            int n = getNextRomanNumeralValueIndex(userInput);
+            userInput -= romanNumeralValues[n];
+            outputValue.append(romanNumerals[n]);
         }
         return outputValue.toString();
     }
@@ -31,7 +27,7 @@ public class RomanNumeralConverter {
         int outputValue = 0;
         userInputLength = userInput.length();
         while (userInputLength > 0) {
-            outputValue = parseRomanNumeral(outputValue, userInput);
+            outputValue += parseNextRomanNumeral(userInput);
             if (outputValue == -1) return "Invalid roman numeral!";
             userInput = userInput.substring(currentRomanNumeralLength, userInputLength);
             userInputLength -= currentRomanNumeralLength;
@@ -54,13 +50,22 @@ public class RomanNumeralConverter {
         return true;
     }
 
-    private Integer parseRomanNumeral(Integer outputValue, String userInput) {
+    private Integer getNextRomanNumeralValueIndex(Integer userInput) {
+        int i;
+        for (i = 0; i < romanNumerals.length; i++) {
+            if (userInput - romanNumeralValues[i] >= 0) break;
+        }
+        return i;
+    }
+
+    private Integer parseNextRomanNumeral(String userInput) {
+        int outputValue = 0;
         for (int i = 0; i < romanNumerals.length; i++) {
             currentRomanNumeralLength = romanNumerals[i].length();
             if (userInputLength > 1 && !validateNextRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return -1;
             if (userInputLength >= currentRomanNumeralLength
                     && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
-                outputValue += romanNumeralValues[i];
+                outputValue = romanNumeralValues[i];
                 break;
             }
         }
