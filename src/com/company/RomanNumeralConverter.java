@@ -37,10 +37,11 @@ public class RomanNumeralConverter {
 
         int outputValue = 0;
         int userInputLength = userInput.length();
+        int currentRomanNumeralLength;
 
         while (userInputLength > 0) {
             for (int i = 0; i < romanNumerals.length; i++) {
-                int currentRomanNumeralLength = romanNumerals[i].length();
+                currentRomanNumeralLength = romanNumerals[i].length();
                 if (userInputLength >= currentRomanNumeralLength && userInput.substring(0,currentRomanNumeralLength).equals(romanNumerals[i])) {
                     if (userInputLength > 1) {
                         if (!validateRomanNumeralPart(romanNumerals[i], userInput.substring(1,2))) return "Invalid roman numeral!";
@@ -66,9 +67,11 @@ public class RomanNumeralConverter {
     }
 
     private boolean validateRomanNumeralPart(String romanNumeral, String userInputPart) {
+
+        if (!romanNumeral.matches("[I|X]")) return true;
+
         String[] validForI = {"X", "V", "I"};
         String[] validForX = {"C", "L", "X", "V", "I"};
-        if (!romanNumeral.matches("[I|X]")) return true;
 
         switch (romanNumeral) {
             case "I":
